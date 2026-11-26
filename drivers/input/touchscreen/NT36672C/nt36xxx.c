@@ -34,7 +34,6 @@
 #elif defined(CONFIG_HAS_EARLYSUSPEND)
 #include <linux/earlysuspend.h>
 #endif
-int nvt_gesture_flag = 0;
 
 #include "nt36xxx.h"
 #if NVT_TOUCH_ESD_PROTECT
