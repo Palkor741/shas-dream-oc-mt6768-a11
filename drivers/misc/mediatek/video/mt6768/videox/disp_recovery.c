@@ -69,6 +69,11 @@
 #include "disp_recovery.h"
 #include "disp_partial.h"
 #include "ddp_dsi.h"
+__attribute__((weak)) int nvt_update_firmware(void)
+{
+	return 0;
+}
+
 
 /* For abnormal check */
 static struct task_struct *primary_display_check_task;
