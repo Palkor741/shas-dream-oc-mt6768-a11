@@ -450,10 +450,11 @@ static ssize_t nvt_gesture_mode_write(struct file *file, const char __user *buff
 	if (count > 0) {
 		if (get_user(input, buffer))
 			return -EFAULT;
-		if (input != '5')
-			nvt_gesture_flag = false;
-		else
-			nvt_gesture_flag = true;
+		if (input == '1' || input == '5')
+         nvt_gesture_flag = true;
+        else
+         nvt_gesture_flag = false;
+		
 	}
 
 	return count;
@@ -2158,7 +2159,7 @@ int32_t nvt_extra_proc_init(void)
 	} else {
 		NVT_LOG("create proc/%s Succeeded!\n", NVT_TP_INFO);
 	}
-	NVT_gesture_entry = proc_create(NVT_GESTURE_MODE, 0444, NULL, &nvt_gesture_mode_fops);
+	NVT_gesture_entry = proc_create(NVT_GESTURE_MODE, 0666, NULL, &nvt_gesture_mode_fops);
 	if (NVT_gesture_entry == NULL) {
 		NVT_ERR("create proc/%s Failed!\n", NVT_GESTURE_MODE);
 		return -ENOMEM;
