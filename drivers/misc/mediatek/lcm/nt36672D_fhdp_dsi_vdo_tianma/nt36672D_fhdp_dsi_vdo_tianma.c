@@ -82,7 +82,8 @@ static struct LCM_UTIL_FUNCS lcm_util;
 	  lcm_util.dsi_dcs_read_lcm_reg(cmd)
 #define read_reg_v2(cmd, buffer, buffer_size) \
 		lcm_util.dsi_dcs_read_lcm_reg_v2(cmd, buffer, buffer_size)
-__attribute__((weak)) int nvt_gesture_flag = 0;
+__attribute__((weak)) bool nvt_gesture_flag = false;
+
 
 
 #ifndef BUILD_LK
